@@ -26,11 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final dio = Dio();
 
-    //localhost
-    final emulatorIp = "10.0.2.2:3000";
-    final simulatorIp = "127.0.0.1:3000";
 
-    final ip = Platform.isIOS ? simulatorIp : emulatorIp;
 
     return DefaultLayout(
       child: SafeArea(
@@ -110,14 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 TextButton(
                   onPressed: () async {
-                    final refreshToken =
-                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAY29kZWZhY3RvcnkuYWkiLCJzdWIiOiJmNTViMzJkMi00ZDY4LTRjMWUtYTNjYS1kYTlkN2QwZDkyZTUiLCJ0eXBlIjoicmVmcmVzaCIsImlhdCI6MTY3ODk2NjA3MSwiZXhwIjoxNjc5MDUyNDcxfQ.Gpe1T4E_qe_U_Q2ZcZ7DHMn6pywSfBSsRwEeCifnjQw";
-                    final resp = await dio.post('http://$ip/auth/token',
-                        options: Options(headers: {
-                          'authorization': 'Bearer $refreshToken',
-                        }));
-                    print('http://$ip/auth/token');
-                    print(resp.data);
+
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.black,
