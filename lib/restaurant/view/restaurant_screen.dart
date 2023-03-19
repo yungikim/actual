@@ -46,7 +46,7 @@ class RestaurantScreen extends StatelessWidget {
                     ),
                     //image: Image.asset("asset/img/food/ddeok_bok_gi.jpg", fit: BoxFit.cover,),
                     name: item['name'],
-                    tags: item['tags'],
+                    tags: List<String>.from(item['tags']),
                     ratingsCount: item['ratingsCount'],
                     deliveryTime: item['deliveryTime'],
                     deliveryFee: item['deliveryFee'],
