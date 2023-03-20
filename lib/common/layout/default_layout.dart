@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DefaultLayout extends StatelessWidget {
@@ -18,20 +19,27 @@ class DefaultLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor ?? Colors.white,
-      appBar: renderAppBar(),
+      appBar: renderAppBar(context),
       body: child,
       bottomNavigationBar: bottomNavigationBar,
     );
   }
 
-  AppBar? renderAppBar(){
+  AppBar? renderAppBar(BuildContext context){
     if (title == null){
       return null;
     }else{
+
       return AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
+        // leading: IconButton(
+        //   icon: Icon(CupertinoIcons.chevron_back),
+        //   onPressed: (){
+        //     Navigator.pop(context);
+        //   },
+        // ),
         title: Text(
           title!,
           style: TextStyle(
