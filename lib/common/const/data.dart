@@ -7,7 +7,9 @@ const REFRESH_TOKEN_KEY = 'REFRESH_TOKEN';
 final storage = FlutterSecureStorage();
 
 //localhost
-final emulatorIp = "10.0.2.2:3000";
-final simulatorIp = "127.0.0.1:3000";
+//final emulatorIp = "10.0.2.2:3000";
+final emulatorIp = "files.kmslab.com:13001";
+//final simulatorIp = "127.0.0.1:3000";
+final simulatorIp = "files.kmslab.com:13001";
 
 final ip = Platform.isIOS ? simulatorIp : emulatorIp;
