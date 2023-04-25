@@ -26,18 +26,16 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final dio = Dio();
 
-
-
     return DefaultLayout(
       child: SafeArea(
         top: true,
         bottom: false,
-        child: SingleChildScrollView(
-          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+        child: SingleChildScrollView(  //키보드가 올라오면 높이가 더 커져서 오류 나는 부분을 처리
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,  //다른 부분 드래그시 키보드를 내려 달라는 옵션
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.stretch, //환영합니다. 글자를 좌측으로 보냄
               children: [
                 _Title(),
                 const SizedBox(
@@ -46,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 _SubTitle(),
                 Image.asset(
                   'asset/img/misc/logo.png',
-                  width: MediaQuery.of(context).size.width / 3 * 2,
+                  width: MediaQuery.of(context).size.width / 3 * 2, // 2/3 사이즈 넓이로 설정
                 ),
                 CustomTextFormField(
                   hintText: "이메일을 입력해 주세요",
@@ -75,7 +73,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     Codec<String, String> stringToBase64 = utf8.fuse(base64);
                     String token = stringToBase64.encode(rawString);
 
-                    print('http://$ip/auth/login');
                     final resp = await dio.post(
                       'http://$ip/auth/login',
                       options: Options(
@@ -87,6 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     final refreshToken = resp.data['refreshToken'];
                     final accessToken = resp.data['accessToken'];
+
 
                     await storage.write(key: REFRESH_TOKEN_KEY, value: refreshToken);
                     await storage.write(key: ACCESS_TOKEN_KEY, value: accessToken);

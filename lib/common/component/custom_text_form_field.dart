@@ -42,7 +42,7 @@ class CustomTextFormField extends StatelessWidget {
         fillColor: INPUT_BG_COLOR,
         //false : 색상 없음
         filled: true,
-        enabledBorder: baseBorder,
+        enabledBorder: baseBorder,  //포커스가 들어갔을때 border를 넣어준다.
         border: baseBorder,
         focusedBorder: baseBorder.copyWith(
           borderSide: baseBorder.borderSide.copyWith(

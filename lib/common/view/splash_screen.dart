@@ -1,4 +1,5 @@
 import 'package:actual/common/const/data.dart';
+import 'package:actual/common/dio/dio.dart';
 import 'package:actual/common/layout/default_layout.dart';
 import 'package:actual/common/view/root_tab.dart';
 import 'package:actual/user/view/login_screen.dart';
@@ -15,12 +16,15 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  //sfl로 설정해야 initState를 사용할 수 있다.
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
     // deleteToken();
+    //initSate에서 await를 사용할 수 없어 별도 일반 함수를 생성한다.
     checkToken();
   }
 
@@ -42,6 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
       await storage.write(key: ACCESS_TOKEN_KEY, value: resp.data['accessToken']);
 
+      //pushAndRemoveUntil을 하면 뒤로가기를 제거해 준다.
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(

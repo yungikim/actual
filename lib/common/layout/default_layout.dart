@@ -18,7 +18,7 @@ class DefaultLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor ?? Colors.white,
+      backgroundColor: backgroundColor ?? Colors.white,  //backgroundColor이 null일 경우 흰색으로 처리한다.
       appBar: renderAppBar(context),
       body: child,
       bottomNavigationBar: bottomNavigationBar,
