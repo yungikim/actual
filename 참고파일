@@ -2,3 +2,11 @@
 node서버 경로 : D:\flutter project\flutter-lv2-server-main\flutter-lv2-server-main
 실행 방법 : 해당 경로에서 npm run start:dev
 접속 방법 : http://127.0.0.1:3000/api
+
+로그인 아이디 : test@codefactory.ai
+패스워드 : testtest
+
+//part.g 처리하기
+flutter pub run build_runner build
+
+flutter pub run build_runner watch //빌드가 자동으로 실행됨

@@ -36,6 +36,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //좌측에 있는 이미지의 높이에 맞춰서 내부에 최대 높이에 맞추어준다 설정해주기 위해서 IntrinsicHeight로 감싸주어야 한다.
     return IntrinsicHeight(
       child: Row(
         children: [
@@ -59,7 +60,7 @@ class ProductCard extends StatelessWidget {
                 ),
                 Text(
                   detail,
-                  overflow: TextOverflow.ellipsis,
+                  overflow: TextOverflow.ellipsis,  //텍스트가 넘어가면 ...으로 처리한다.
                   maxLines: 2,
                   style: TextStyle(
                     color: BODY_TEXT_COLOR,
@@ -67,7 +68,7 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: double.infinity,
+                  width: double.infinity,   //우측 정렬이 안되서 최대 높이로 맞추어 주었다.
                   child: Text(
                     '₩${price}',
                     textAlign: TextAlign.right,
